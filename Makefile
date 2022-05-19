@@ -11,14 +11,29 @@
 # **************************************************************************** #
 
 
-NAME		= 	libft.a
 CC 			= 	gcc
-FLAGS 		= 	-Wall -Wextra -Werror
-LIB			= 	ar rc
-FILES		= 	ft_isalpha.c \\
+FLAGS 		= 	-Wall -Wextra -Werror -c
+AR			= 	ar rc
+NAME		= 	libft.a
+FILES		= 	ft_isalpha.c
+OBJS		=	${FILES:.c=.o}
 
-all: 		$(NAME)
+all:		${NAME}
 
-$(NAME):	$(CC) $(FLAGS) $(FILES)
+${NAME}:
+			${CC} ${FLAGS} ${FILES}
+			${AR} ${NAME} ${OBJS}
+			ranlib ${NAME}
+			printf "Done\\n"
 
-clean:		
+clean:
+			rm ${OBJS}
+			printf "Objects cleaned!\\n"
+
+fclean:		clean
+			rm ${NAME}
+			printf "Library cleaned!\\n"
+
+re:			fclean all
+
+.PHONY:		all clean fclean re
