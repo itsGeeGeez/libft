@@ -12,6 +12,20 @@
 
 #include "libft.h"
 
+static char	**ft_free(char **arr)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return (NULL);
+}
+
 int	ft_count_word(char const *s, char c)
 {
 	int	count;
@@ -45,7 +59,7 @@ static void	ft_get_next_str(char **next_str, unsigned int *next_str_len, char c)
 	while ((*next_str)[i])
 	{
 		if ((*next_str)[i] == c)
-			return (NULL);
+			return;
 		(*next_str_len)++;
 		i++;
 	}
@@ -54,10 +68,10 @@ static void	ft_get_next_str(char **next_str, unsigned int *next_str_len, char c)
 char	**ft_split(char const *s, char c)
 {
 	unsigned int	word_count;
-	unsigned char	**string;
 	unsigned int	i;
 	unsigned int	next_str_len;
-	unsigned char	**next_str;
+	char			*next_str;
+	char			**string;
 
 	if (!s)
 		return (NULL);

@@ -16,7 +16,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	unsigned int	i;
 	unsigned int	j;
-	unsigned char	*str;
+	char	*str;
 
 	str = 0;
 	if (s1 != 0 && set != 0)
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			j--;
 		if (j > i)
 			return (0);
-		str = malloc(sizeof(unsigned char) * (j - i + 1));
+		str = malloc(sizeof(char) * (j - i + 1));
 		if (!str)
 			return (NULL);
 		ft_strlcpy(str, s1 + i, j - i + 1);

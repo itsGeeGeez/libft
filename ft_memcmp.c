@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	memcmp(const void *buf1, const void *buf2, size_t count)
+int	ft_memcmp(const void *buf1, const void *buf2, size_t count)
 {
 	size_t			i;
 	unsigned char	*s1;
@@ -20,6 +20,7 @@ int	memcmp(const void *buf1, const void *buf2, size_t count)
 
 	s1 = (unsigned char *)buf1;
 	s2 = (unsigned char *)buf2;
+	i = 0;
 	if (count == 0)
 		return (0);
 	while (s1[i] == s2[i] && i < count - 1)
