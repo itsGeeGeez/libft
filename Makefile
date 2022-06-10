@@ -14,7 +14,7 @@ NAME		= 	libft.a
 
 CC 			= 	gcc
 FLAGS 		= 	-Wall -Wextra -Werror -c
-AR			= 	ar rc
+AR			= 	ar rcs
 
 FILES		= 	ft_atoi.c \
 				ft_bzero.c \
@@ -58,7 +58,6 @@ OBJS		=	$(FILES:.c=.o)
 $(NAME):
 			$(CC) $(FLAGS) $(FILES)
 			$(AR) $(NAME) $(OBJS)
-			ranlib $(NAME)
 
 all:		$(NAME)
 
