@@ -55,7 +55,7 @@ FILES		= 	ft_atoi.c \
 OBJS		=	$(FILES:.c=.o)
 
 
-$(NAME):
+$(NAME):	$(OBJS)
 			$(CC) $(FLAGS) $(FILES)
 			$(AR) $(NAME) $(OBJS)
 
